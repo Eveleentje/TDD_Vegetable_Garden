@@ -29,7 +29,14 @@ getProfitForCrop = ({crops}) => {
     return crops.map(({crop, costs, revenue}) => crop.numCrops * revenue - crop.numCrops * costs);
 };
 
-
+getTotalProfit = ({crops}) => {
+const profit = getProfitForCrop({crops});
+const initialVal = 0;
+const totalProfit = profit.reduce(
+    (nextVal, currentVal) => nextVal + currentVal, initialVal
+);
+return totalProfit;
+};
 
 
 
@@ -38,4 +45,6 @@ module.exports = {
     getYieldForCrop, 
     getTotalYield, 
     getCostsForCrop, 
-    getRevenueForCrop}
+    getRevenueForCrop,
+getProfitForCrop,
+getTotalProfit}

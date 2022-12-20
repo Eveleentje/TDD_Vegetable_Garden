@@ -1,4 +1,4 @@
-const { getYieldForPlant, getYieldForCrop, getTotalYield, getCostsForCrop, getRevenueForCrop } = require("./farm.js");
+const { getYieldForPlant, getYieldForCrop, getTotalYield, getCostsForCrop, getRevenueForCrop, getProfitForCrop, getTotalProfit } = require("./farm.js");
 
 describe("getYieldForPlant", () => {
     const corn = {
@@ -128,5 +128,31 @@ const crops = [{crop: maize, costs: 1, revenue: 2},
 {crop: corn, costs: 1.5, revenue: 3},
 {crop: pumpkin, costs: 2, revenue: 5}];
 expect(getProfitForCrop({crops})).toEqual([230, 300, 300, 300]);
+    });
+});
+
+describe("Get total profit", () => {
+    test("Calculate total profit", () => {
+        const maize = {
+            name: "maize",
+            numCrops: 230
+        };
+        const avocado = {
+            name: "avocado",
+            numCrops: 150
+        };
+        const corn = {
+            name: "corn",
+            numCrops: 200
+        };
+        const pumpkin = {
+            name: "pumpkin",
+            numCrops: 100
+        };
+const crops = [{crop: maize, costs: 1, revenue: 2},
+{crop: avocado, costs: 2, revenue: 4},
+{crop: corn, costs: 1.5, revenue: 3},
+{crop: pumpkin, costs: 2, revenue: 5}];
+        expect(getTotalProfit({crops})).toBe(1130);
     });
 });
