@@ -127,6 +127,6 @@ const crops = [{crop: maize, costs: 1, revenue: 2},
 {crop: avocado, costs: 2, revenue: 4},
 {crop: corn, costs: 1.5, revenue: 3},
 {crop: pumpkin, costs: 2, revenue: 5}];
-expect(getProfitForCrop({crops})).toEqual([230, 150, 150, 300]);
+expect(getProfitForCrop({crops})).toEqual([230, 300, 300, 300]);
     });
 });

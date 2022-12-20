@@ -25,6 +25,13 @@ getRevenueForCrop = ({crops}) => {
     return crops.map(({crop, revenue}) => crop.numCrops * revenue);
 };
 
+getProfitForCrop = ({crops}) => {
+    return crops.map(({crop, costs, revenue}) => crop.numCrops * revenue - crop.numCrops * costs);
+};
+
+
+
+
 
 module.exports = {
     getYieldForPlant, 
