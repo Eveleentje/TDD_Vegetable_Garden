@@ -17,4 +17,18 @@ const sumTotalYieldArr = cropYield.reduce(
 return sumTotalYieldArr;
 };
 
-module.exports = {getYieldForPlant, getYieldForCrop, getTotalYield}
+getCostsForCrop = ({crops}) => {
+return crops.map(({crop, costs}) => crop.numCrops * costs);
+};
+
+getRevenueForCrop = ({crops}) => {
+    return crops.map(({crop, revenue}) => crop.numCrops * revenue);
+};
+
+
+module.exports = {
+    getYieldForPlant, 
+    getYieldForCrop, 
+    getTotalYield, 
+    getCostsForCrop, 
+    getRevenueForCrop}
